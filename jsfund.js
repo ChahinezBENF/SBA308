@@ -82,9 +82,11 @@ function assignScore(learnsub, assgrp) {
         score -= assg.points_possible * 0.1;
       }
      
-      objectAssignment[parseInt(assg.id)] = Math.round((score / assg.points_possible) * 100); 
+      objectAssignment[assg.id] = Math.round((score / assg.points_possible) * 100); 
     }
   }
+
+ 
 
   return objectAssignment;
 }
@@ -117,9 +119,9 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
     for (let i = 0; i < learnerSubmissions.length; i++) {
       const sub = learnerSubmissions[i];
       if (!learnerData[sub.learner_id]) {
-        learnerData[sub.learner_id] = { id: sub.learner_id, avg: 0, scores: pars{} };
+        learnerData[sub.learner_id] = { id: sub.learner_id, avg: 0, scores: {} };
       }
-    }
+    };
 
 
     //Refil the LearnerData.avg by going through reach learner 
