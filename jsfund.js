@@ -89,7 +89,6 @@ function assignScore(learnsub, assgrp) {
   return objectAssignment;
 }
 
-
 //5 - Create a function named getLearnerData() that accepts these values as parameters, in the order listed:
 //  (CourseInfo, AssignmentGroup, [LearnerSubmission]
 //  and returns the formatted result,
@@ -108,6 +107,7 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
     // set the learnerData empty
     let learnerData = {};
 
+    
     // get the learnerData.id from learnerSubmissions.learner_id 
     //set the average to 0 and asignement to emty and refill them later
     let m = 0;
@@ -116,10 +116,9 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
       if (!learnerData[sub.learner_id]) {
         learnerData[sub.learner_id] = { id: sub.learner_id, avg: 0, assignment_score: {} };
       }
-   
+
       m++;
     }
-
 
     //Refil the LearnerData.avg by going through reach learner 
     Object.keys(learnerData).forEach(learnerId => {
