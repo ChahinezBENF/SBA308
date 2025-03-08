@@ -29,3 +29,25 @@
                    intputs are the 3 parents objects (CourseInfo , AssignmentGroup , LearnerSubmission)
                    outputs is an array of objects (id , avr , assignment_id )
 
+# Requirements : i gave exemples from my code with the line number
+- Declare variables properly using let and const where appropriate (76. const sub = learnsub[i]; 49. let totalScore = 0;) 
+- Use operators to perform calculations on variables and literals.(83. score -= assg.points_possible * 0.1; )
+- Use at least two if/else statements to control program flow. (79.  if (assg) ; 116. if (!learnerData[sub.learner_id]))
+- use at least one switch statement.(35. switch (true))
+- Use try/catch statements to manage potential errors in the code, such as incorrectly formatted or typed data being fed into your   program. (98. in the getLearnerData function)
+- Utilize at least two different types of loops.(75. for ; 114. while)
+- Utilize at least one loop control keyword such as break or continue.(56. if (new Date(assignment.due_at) > now) continue;)
+- Create and/or manipulate arrays and objects.(54. manipulation of an array ; 116. manipulation of an Object )
+- Demonstrate the retrieval, manipulation, and removal of items in an array 
+  or properties in an object (115. const sub = learnerSubmissions[m]; 86. objectAssignment[assg.id])
+- Use functions to handle repeated tasks (127. Average(submissionsForLearner, assignmentGroup); 
+ 129. assignScore(submissionsForLearner, assignmentGroup);) this 2 get repitted because they are in foreach() loop
+- Program outputs processed data as described above. Partial credit will be earned depending on the level of adherence to the described behavior.( outputs [
+  { id: 1010, avg: 44, assignment_score: { '1': 55, '2': 37, '3': 80 }
+  },
+  { id: 1011, avg: 34, assignment_score: { '1': 34, '3': 65 } }])
+- Ensure that the program runs without errors (cheked)
+- Commit frequently to the git repository. (cheked : over 3 commits)
+- Include a README file that contains a description of your application.( cheked)
+
+
