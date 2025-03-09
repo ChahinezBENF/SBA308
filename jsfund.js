@@ -34,7 +34,7 @@ function mismatchingId(courseInfo, assignmentGroup) {
 function potentialError(assignment) {
   switch (true) {
     //What if points_possible is 0?You cannot divide by zero
-    case assignment.points_possible === 0: 
+    case assignment.points_possible === 0:
       throw new Error(`Assignment ${assignment.id} has 0 possible points.`);
     //What if a value that you are expecting to be a number is instead a string?
     case typeof assignment.points_possible !== 'number':
@@ -71,12 +71,15 @@ function Average(lersubm, assignmentGroup) {
 // 4 - Creat function calculate the assignements
 function assignScore(learnsub, assgrp) {
   let objectAssignment = {};
-
+  const now = new Date();
   for (let i = 0; i < learnsub.length; i++) {
     const sub = learnsub[i];
     const assg = assgrp.assignments.find(a => a.id === sub.assignment_id)
+    // if an assignment is not yet due, it should not be included in either
+    if (new Date(assg.due_at) > now) continue;
 
     if (assg) {
+
       // Calculate the score, including late submission
       let score = sub.submission.score;
       if (new Date(sub.submission.submitted_at) > new Date(assg.due_at)) {
@@ -107,7 +110,7 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
     // set the learnerData empty
     let learnerData = {};
 
-    
+
     // get the learnerData.id from learnerSubmissions.learner_id 
     //set the average to 0 and asignement to emty and refill them later
     let m = 0;

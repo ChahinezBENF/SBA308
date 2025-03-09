@@ -1,18 +1,24 @@
 # what we have :
 - ther is 3 main parent objects : CourseInfo , AssignmentGroup , LearnerSubmission
 - and 2 sons objects : assignment (from AssignmentGroup), submission (LearnerSubmission)
+- Most objects has a primary (PK) and foreigner key (FK) help to get the information from each others and check conditions 
+- CourseInfo ( PK : id) , AssignmentGroup( PK : id, FK : course_id) , LearnerSubmission( PK : learner_id, FK : assignment_id)
+  assignment ( PK : id)
+  
 
 # what we have to do :
-- create an object called learnerData has ( "id ": number , "avg": number, "assignment_id" : number, )
-- "id " is from the object LearnerSubmission 
+- create an object called learnerData has ( "id ": number , "avg": number, "assignment_score" : {number}, )
+- "id " can get it from the object LearnerSubmission 
 - "avg" calculate the average scores :  sum(LearnerSubmission.submission.scor)/sum(AssignmentGroup.assignment.points_possible) * 100.
         taking into account only the assignments that are due.
         Deduct 10% of points possible if a submission is latee.
-        function Average include all of this function.
+        function Average include all of this conditions.
    
-- "assignment_id" get the key from AssignmentGroup.assignment
+- "assignment_score" get the key from AssignmentGroup.assignment
                  the value is (LearnerSubmission.submission.scor/AssignmentGroup.assignment.points_possible)*100 for each ID
-
+                 taking into account only the assignments that are due.
+                 Deduct 10% of points possible if a submission is latee.
+                 function assignScore include all of this conditions.
 
 
 # Conditions or function must be :
