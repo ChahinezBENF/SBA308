@@ -102,8 +102,8 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
     mismatchingId(courseInfo, assignmentGroup);
 
     //check valid possible_point using potentialError function
-    //i have to go through assignmentGroup and then assignment
-    //  to get the point_possible for all the assignment using method for each
+    // Must go through assignmentGroup and then assignment
+    // to get the point_possible for all the assignment using method for each
     assignmentGroup.assignments.forEach(potentialError);
 
     // Initialize data structures which should be an array of objects
@@ -123,12 +123,13 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
       m++;
     }
 
-    //Refil the LearnerData.avg by going through reach learner 
+    //Refil the LearnerData.avg and LearnerData.assignment_score by going through reach learner 
+    // and using the functions each time 
     Object.keys(learnerData).forEach(learnerId => {
       const submissionsForLearner = learnerSubmissions.filter(sub => sub.learner_id === Number(learnerId));
       //refil the average 
       learnerData[learnerId].avg = Average(submissionsForLearner, assignmentGroup);
-      //refil the saaignement score 
+      //refil the asaignement score 
       learnerData[learnerId].assignment_score = assignScore(submissionsForLearner, assignmentGroup);
     });
 
